@@ -11,8 +11,8 @@ import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 
-@DataJpaTest 
-@RunWith(SpringRunner.class) 
+@DataJpaTest
+@RunWith(SpringRunner.class)
 public class LocationRepositoryTest {
 
 	@Autowired
