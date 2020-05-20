@@ -1,6 +1,7 @@
 package com.guitar.db.repository;
 
 import com.guitar.db.model.Location;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,19 @@ public class LocationRepositoryTest {
 
 	@Autowired
 	public LocationRepository locationRepository;
+
+	@Before
+	public void initialize(){
+		Location location = new Location();
+		location.setCountry("Canada");
+		location.setState("British Columbia");
+
+		Location anotherLocation = new Location();
+		anotherLocation.setCountry("Canada");
+		anotherLocation.setState("Some state");
+
+		locationRepository.saveAll(List.of(location, anotherLocation));
+	}
 	
 	@Test
 	public void testFindAll() {
@@ -59,5 +73,17 @@ public class LocationRepositoryTest {
 		assertEquals(1, arizona.getManufacturers().size());
 
 		assertEquals("Fender Musical Instruments Corporation", arizona.getManufacturers().get(0).getName());
+	}
+
+	@Test
+	public void testFindWithAnd(){
+		List<Location> locations = locationRepository.findByStateAndCountry("Some state", "Canada");
+		assertEquals(1, locations.size());
+	}
+
+	@Test
+	public void testFindWithOr(){
+		List<Location> locations = locationRepository.findByStateOrCountry("Some state", "Canada");
+		assertEquals(2, locations.size());
 	}
 }
