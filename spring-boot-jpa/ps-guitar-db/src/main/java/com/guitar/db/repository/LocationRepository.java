@@ -10,6 +10,8 @@ public interface LocationRepository extends JpaRepository<Location, Long> {
 
     List<Location> findByStateLike(String stateName);
 
+    List<Location> findByStateIgnoreCaseLike(String stateName);
+
     List<Location> findByStateAndCountry(String stateName, String countryName);
 
     List<Location> findByStateOrCountry(String stateName, String countryName);
@@ -28,6 +30,17 @@ public interface LocationRepository extends JpaRepository<Location, Long> {
 
     List<Location> findByStateContaining(String stateName);
 
+    List<Location> findByIdGreaterThanEqualAndIdLessThanEqual(int min, int max);
+
+    List<Location> findFirstByState(String stateName);
+
+    List<Location> findTop5ByState(String stateName);
+
+    List<Location> findDistinctCountryByState(String stateName);
+
+    List<Location> findByCountryOrderByStateAsc(String CountryName);
+
+    List<Location> findByCountryOrderByStateDesc(String CountryName);
 
 
 }
