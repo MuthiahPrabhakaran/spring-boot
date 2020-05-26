@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @DataJpaTest
 @RunWith(SpringRunner.class)
-public class ModelRepositoryTest {
+public class ModelTypeRepositoryTest {
 
     @Autowired
     public ModelTypeRepository modelTypeRepository;

@@ -1,5 +1,7 @@
 package com.guitar.db.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -16,7 +18,15 @@ public class Model {
 	private int frets;
 	private String woodType;
 	private Date yearFirstMade;
-	
+
+	public Model(){	}
+
+	public Model(String name, BigDecimal price, String woodType, ModelType modelType){
+		this.name = name;
+		this.price = price;
+		this.woodType = woodType;
+		this.modelType = modelType;
+	}
 	@ManyToOne
 	private Manufacturer manufacturer;
 
