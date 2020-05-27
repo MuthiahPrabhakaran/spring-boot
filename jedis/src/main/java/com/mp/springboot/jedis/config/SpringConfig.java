@@ -2,7 +2,9 @@ package com.mp.springboot.jedis.config;
 
 
 
+import com.mp.springboot.jedis.model.Programmer;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +12,7 @@ import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.util.StringUtils;
@@ -61,11 +64,17 @@ public class SpringConfig {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
         redisTemplate.setConnectionFactory(getJedisConnectionFactory());
         redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-//   	 redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-//        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
-//        redisTemplate.setHashValueSerializer(new StringRedisSerializer()));
+        redisTemplate.setKeySerializer(new StringRedisSerializer()); //If we use String as a key, use this
+//   	redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
+//      redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+//      redisTemplate.setHashValueSerializer(new StringRedisSerializer()));
         return redisTemplate;
+    }
+
+    @Bean
+    @Qualifier //take care if the other bean with the same type exists
+    public ListOperations<String, Programmer> listOperations(RedisTemplate<String, Programmer> redisTemplate){
+        return redisTemplate.opsForList();
     }
 
 

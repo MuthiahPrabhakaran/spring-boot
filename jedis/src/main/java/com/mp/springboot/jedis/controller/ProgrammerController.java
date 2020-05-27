@@ -7,6 +7,8 @@ import com.mp.springboot.jedis.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/programmer")
 public class ProgrammerController {
@@ -28,5 +30,19 @@ public class ProgrammerController {
         return programmerService.getProgrammer(id);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/addToList")
+    public void addToList(@RequestBody Programmer programmer){
+        programmerService.addToProgrammerList(programmer);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/getProgrammers")
+    public List<Programmer> getProgrammers(){
+        return programmerService.getProgrammers();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/getProgrammersCount")
+    public Long getProgrammersCount(){
+        return programmerService.getProgrammersListCount();
+    }
 
 }

@@ -1,8 +1,11 @@
 package com.mp.springboot.jedis.service;
 
 import com.mp.springboot.jedis.dao.ProgrammerRepository;
+import com.mp.springboot.jedis.model.Programmer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProgrammerServiceImpl implements ProgrammerService {
@@ -16,5 +19,20 @@ public class ProgrammerServiceImpl implements ProgrammerService {
 
     public String getProgrammer(String id){
        return programmerRepository.getProgrammer(id);
+    }
+
+    @Override
+    public void addToProgrammerList(Programmer programmer) {
+        programmerRepository.addToProgrammerList(programmer);
+    }
+
+    @Override
+    public List<Programmer> getProgrammers() {
+        return programmerRepository.getProgrammers();
+    }
+
+    @Override
+    public Long getProgrammersListCount() {
+        return programmerRepository.getProgrammersListCount();
     }
 }
