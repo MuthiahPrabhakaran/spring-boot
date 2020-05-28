@@ -3,6 +3,7 @@ package com.mp.springboot.jedis.service;
 import com.mp.springboot.jedis.model.Programmer;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ProgrammerService {
 
@@ -15,4 +16,10 @@ public interface ProgrammerService {
     List<Programmer> getProgrammers();
 
     Long getProgrammersListCount();
+
+    void addToProgrammerSet(Programmer... programmer);
+
+    Set<Programmer> getProgrammersSet();
+
+    boolean isSetMember(Programmer programmer);
 }

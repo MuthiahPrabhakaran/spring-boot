@@ -2,6 +2,7 @@ package com.mp.springboot.jedis.model;
 
 
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Programmer implements Serializable {
@@ -32,5 +33,20 @@ public class Programmer implements Serializable {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Programmer that = (Programmer) o;
+        return id == that.id &&
+                name.equals(that.name) &&
+                company.equals(that.company);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, company);
     }
 }

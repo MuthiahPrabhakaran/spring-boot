@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/programmer")
@@ -43,6 +44,22 @@ public class ProgrammerController {
     @RequestMapping(method = RequestMethod.GET, value = "/getProgrammersCount")
     public Long getProgrammersCount(){
         return programmerService.getProgrammersListCount();
+    }
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/programmer-set")
+    public void addToSet(@RequestBody Programmer... programmer){
+        programmerService.addToProgrammerSet(programmer);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/programmer-set")
+    public Set<Programmer> getProgrammersSet(){
+        return programmerService.getProgrammersSet();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/programmer-set/member")
+    public boolean isSetMember(@RequestBody Programmer programmer){
+        return programmerService.isSetMember(programmer);
     }
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ProgrammerServiceImpl implements ProgrammerService {
@@ -34,5 +35,20 @@ public class ProgrammerServiceImpl implements ProgrammerService {
     @Override
     public Long getProgrammersListCount() {
         return programmerRepository.getProgrammersListCount();
+    }
+
+    @Override
+    public void addToProgrammerSet(Programmer... programmer) {
+        programmerRepository.addToProgrammerSet(programmer);
+    }
+
+    @Override
+    public Set<Programmer> getProgrammersSet() {
+        return programmerRepository.getProgrammersSet();
+    }
+
+    @Override
+    public boolean isSetMember(Programmer programmer) {
+        return programmerRepository.isSetMember(programmer);
     }
 }
