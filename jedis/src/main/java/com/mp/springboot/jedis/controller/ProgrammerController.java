@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -62,4 +63,29 @@ public class ProgrammerController {
         return programmerService.isSetMember(programmer);
     }
 
+
+    @RequestMapping(method = RequestMethod.POST, value = "/programmer-hash")
+    public void push(@RequestBody Programmer programmer){
+        programmerService.saveHash(programmer);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/programmer-hash/update")
+    public void update(@RequestBody Programmer programmer){
+        programmerService.updateHash(programmer);
+    }
+
+    @GetMapping(value = "/programmer-hash")
+    public Map<Integer, Programmer> findAllHash(){
+        return programmerService.findAllHash();
+    }
+
+    @GetMapping(value = "/programmer-hash/{id}")
+    public Programmer findIdInHash(@PathVariable int id){
+        return programmerService.findInHash(id);
+    }
+
+    @DeleteMapping(value = "/programmer-hash/{id}")
+    public void deleteIdInHash(@PathVariable int id){
+        programmerService.deleteHash(id);
+    }
 }
