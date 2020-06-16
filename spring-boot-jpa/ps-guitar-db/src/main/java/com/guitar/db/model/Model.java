@@ -1,13 +1,15 @@
 package com.guitar.db.model;
 
-import lombok.*;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@NamedQuery(name="Model.findAllModelsByType", query="select m from Model m where m.modelType.name = :name")
+//@NamedQuery(name="Model.findAllModelsByType", query="select m from Model m")
+@NamedQueries({
+		@NamedQuery(name="Model.findMpModels", query = "select m from Model m"),
+		@NamedQuery(name = "Model.findKrish", query = "select m from Model m where m.name = :name")
+})
 public class Model {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

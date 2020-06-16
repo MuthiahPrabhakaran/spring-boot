@@ -99,4 +99,16 @@ public class ModelRepositoryTests {
 		assertEquals(resultModels.size(), 6);
 	}
 
+	@Test
+	public void testNamedQuery(){
+		List<Model> resultModels = modelRepository.findMpModels();
+		assertEquals(resultModels.size(), 8);
+	}
+
+	@Test
+	public void testNamedQueryWithParameter(){
+		List<Model> resultModels = modelRepository.findKrish("American Telecaster");
+		assertEquals(resultModels.size(), 1);
+	}
+
 }
