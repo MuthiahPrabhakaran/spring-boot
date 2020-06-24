@@ -13,6 +13,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -85,6 +89,23 @@ public class ModelRepositoryTests {
 	public void testQueryByPriceAndWood(){
 		List<Model> models = modelRepository.queryByPriceRangeAndWoodType(BigDecimal.valueOf(600),BigDecimal.valueOf(1500), "%Maple%");
 		assertEquals(models.size(), 3);
+	}
+
+	@Test
+	public void testQueryByPriceAndWoodWithPageable(){
+		Pageable page = PageRequest.of(0,2);
+		//List<Page> models = modelRepository.queryByPriceRangeAndWoodType(BigDecimal.valueOf(600),BigDecimal.valueOf(1500), "%Maple%", page);
+		Page<Model> models = modelRepository.queryByPriceRangeAndWoodType(BigDecimal.valueOf(600),BigDecimal.valueOf(1500), "%Maple%", page);
+		assertEquals(models.getSize(), 2);
+	}
+
+	@Test
+	public void testQueryByPriceAndWoodWithPageableAndSort(){
+		Sort sort = Sort.by(Sort.Direction.ASC, "name");
+		Pageable page = PageRequest.of(0,2,sort);
+		//List<Page> models = modelRepository.queryByPriceRangeAndWoodType(BigDecimal.valueOf(600),BigDecimal.valueOf(1500), "%Maple%", page);
+		Page<Model> models = modelRepository.queryByPriceRangeAndWoodType(BigDecimal.valueOf(600),BigDecimal.valueOf(1500), "%Maple%", page);
+		assertEquals(models.getSize(), 2);
 	}
 
 	@Test

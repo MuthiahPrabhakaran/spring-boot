@@ -9,4 +9,6 @@ import java.util.List;
 public interface ManufacturerRepository extends JpaRepository<Manufacturer, Long> {
 
     List<Manufacturer> findByFoundedDateBefore(Date foundedDate);
+
+    List<Manufacturer> getAllThatSellAcoustics(String modelType);
 }
