@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.math.BigDecimal;
 import java.util.List;
 
-public interface ModelRepository extends JpaRepository<Model, Long> {
+public interface ModelRepository extends JpaRepository<Model, Long>, MyCustomRepository{
 
     List<Model> findByModelTypeNameIn(List<String> model);
     List<Model> findByModelTypeNameNotIn(List<String> model);

@@ -132,4 +132,10 @@ public class ModelRepositoryTests {
 		assertEquals(resultModels.size(), 1);
 	}
 
+	@Test
+	public void testCustomRepository(){
+		List<Model> resultModels = modelRepository.customGetModels();
+		assertEquals(resultModels.size(), 8);
+	}
+
 }
