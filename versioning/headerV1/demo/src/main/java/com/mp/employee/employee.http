@@ -1,0 +1,22 @@
+###
+GET http://localhost:8080/actuator/health
+Accept: application/json
+###
+GET http://localhost:8080/v2/employees
+Accept: application/json
+###
+POST http://localhost:8080/v1/employees
+Content-Type: application/json
+
+{"name": "craig",
+  "title":  "developer"}
+###
+GET http://localhost:8080/v1/employees
+Accept: application/json
+###
+GET http://localhost:8080/v2/schedule
+Accept: application/json
+###
+GET http://localhost:8080/old-schedule
+Accept: application/json
+###
