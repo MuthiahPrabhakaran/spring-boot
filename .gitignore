@@ -6,3 +6,6 @@ jedis/mvnw
 cloud/service-discovery/client/.mvn/
 cloud/service-discovery/client/mvnw
 cloud/service-discovery/client/mvnw.cmd
+cloud/service-discovery/discovery-server/mvnw
+cloud/service-discovery/discovery-server/mvnw.cmd
+cloud/service-discovery/discovery-server/.mvn/
