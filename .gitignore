@@ -9,3 +9,6 @@ cloud/service-discovery/client/mvnw.cmd
 cloud/service-discovery/discovery-server/mvnw
 cloud/service-discovery/discovery-server/mvnw.cmd
 cloud/service-discovery/discovery-server/.mvn/
+cloud/service-discovery/service/mvnw
+cloud/service-discovery/service/mvnw.cmd
+cloud/service-discovery/service/.mvn/
