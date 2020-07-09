@@ -1,0 +1,28 @@
+GET http://localhost:8081/schedule
+Accept: application/json
+Accept-version: v1
+###
+GET http://localhost:8081/schedule
+Accept: application/json
+Accept-version: v2
+###
+GET http://localhost:8081/employees
+Accept: application/json
+Accept-version: v2
+###
+POST http://localhost:8081/employees
+Content-Type: application/json
+Accept-version: v2
+
+{"name": "william",
+  "title":  "developer",
+  "department":  "research"}
+###
+GET http://localhost:8081/employees
+Accept: application/json
+Accept-version: v2
+###
+
+GET http://localhost:8081/employees
+Accept: application/json
+###
