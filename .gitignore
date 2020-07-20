@@ -12,3 +12,6 @@ cloud/service-discovery/discovery-server/.mvn/
 cloud/service-discovery/service/mvnw
 cloud/service-discovery/service/mvnw.cmd
 cloud/service-discovery/service/.mvn/
+kafka/.mvn/
+kafka/mvnw.cmd
+kafka/mvnw
