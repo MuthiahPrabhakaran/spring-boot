@@ -11,7 +11,7 @@ This repository contains various sub projects for different spring modules
 * [Maven-Parent](./parent)
 * [Common](./common)
 
-In few projects, I didn't follow the standard practice. The aim of this repo is to give an example for various spring projects. 
+I haven't followed the standard practice in few projects. The aim of this repo is to give an example for various spring projects. 
 
 I am still updating codes and junits when I get free time.
 
