@@ -16,6 +16,15 @@ Run via command line
 
 ## Endpoints
 
+Custom Health Indicator
+
+    http://localhost:8080/actuator/health
+    
+Replace health with <i>metrics/beans</i> for respective actuators.
+
+<b>Custom Actuator - Readiness</b>
+
+    http://localhost:8080/actuator/readiness
 
 # Found a bug?
 
