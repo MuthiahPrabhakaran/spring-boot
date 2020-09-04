@@ -1,3 +1,19 @@
+delete from passport;
+insert into passport(id, passport_number) values(40001,'E123456');
+insert into passport(id, passport_number) values(40002,'G123456');
+insert into passport(id, passport_number) values(40003,'L123456');
+
+delete from student;
+insert into student(id, name, passport_id) values(20001,'MP', 40001);
+insert into student(id, name, passport_id) values(20002,'Spoorthi', 40002);
+insert into student(id, name, passport_id) values(20003,'Krish', 40003);
+
+delete from review;
+insert into review values(50001,'5','Great course');
+insert into review values(50002,'4','Great purchase');
+insert into review values(50003,'1','Good course');
+
+
 delete from location;
 insert into location (id, country, state) values (1, 'United States', 'Alabama');
 insert into location (id, country, state) values (2, 'United States', 'Alaska');
