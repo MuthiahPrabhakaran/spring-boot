@@ -12,7 +12,7 @@ public class Student {
     @Column(nullable = false)
     private String name;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     private Passport passport;
 
     public Passport getPassport() {
@@ -37,5 +37,13 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
