@@ -1,6 +1,6 @@
 package com.mp.aop.aspect;
 
-import org.aopalliance.intercept.Joinpoint;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -27,14 +27,15 @@ public class LoggingAspect {
 
 
     // Package oriented
-    /*@Before("execution(* com.mp.aop.controller.*.*Passenger(..))")
-    public void before(){
-        logger.info("Entering method in controller");
+    @Before("execution(* com.mp.aop.controller.*.*Passenger(..))")
+    public void before(JoinPoint joinpoint){
+        Object[] args = joinpoint.getArgs();
+        logger.info("Entering method in controller. ID - " + args[0] );
     }
 
     @After("execution(* com.mp.aop.controller.*.*Passenger(..))")
     public void after(){
         logger.info("Entering method in controller");
-    }*/
+    }
 
 }
