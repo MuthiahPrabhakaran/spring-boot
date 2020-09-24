@@ -1,5 +1,6 @@
 package com.mp.aop.controller;
 
+import com.mp.aop.aspect.custom.Log;
 import com.mp.aop.model.Passenger;
 import com.mp.aop.service.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,17 @@ public class PassengerManager {
 
     @GetMapping("/{id}")
     public ResponseEntity<Passenger> getPassenger(@PathVariable String id){
+        if(id.equals("john-doe")){
+            throw new RuntimeException("Invalid ID");
+        }
         Passenger passenger = passengerService.getPassenger(id);
+        return new ResponseEntity<>(passenger, HttpStatus.OK);
+    }
+
+    @Log
+    @GetMapping
+    public ResponseEntity<Passenger> getRandom(){
+        Passenger passenger = passengerService.getPassenger("EMP101");
         return new ResponseEntity<>(passenger, HttpStatus.OK);
     }
 }
