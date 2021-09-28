@@ -16,3 +16,13 @@ kafka/.mvn/
 kafka/mvnw.cmd
 kafka/mvnw
 aop/.mvn/
+*.jar
+*.cmd
+state-machine/.mvn/wrapper/maven-wrapper.jar
+state-machine/.mvn/wrapper/maven-wrapper.properties
+state-machine/.mvn/wrapper/MavenWrapperDownloader.java
+state-machine/mvnw
+*.jar
+state-machine/.mvn/wrapper/maven-wrapper.jar
+state-machine/.mvn/wrapper/maven-wrapper.jar
+state-machine/.mvn/wrapper/maven-wrapper.jar
