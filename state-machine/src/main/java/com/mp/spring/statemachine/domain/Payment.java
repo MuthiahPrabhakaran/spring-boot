@@ -2,9 +2,7 @@ package com.mp.spring.statemachine.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Getter
@@ -15,6 +13,8 @@ import java.math.BigDecimal;
 @Entity
 public class Payment {
 
+    @Id
+    @GeneratedValue
     private Long id;
 
     @Enumerated(EnumType.STRING)
