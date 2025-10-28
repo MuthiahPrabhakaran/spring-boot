@@ -26,3 +26,6 @@ state-machine/mvnw
 state-machine/.mvn/wrapper/maven-wrapper.jar
 state-machine/.mvn/wrapper/maven-wrapper.jar
 state-machine/.mvn/wrapper/maven-wrapper.jar
+graphql/mvnw
+graphql/.gitattributes
+graphql/.mvn/wrapper/maven-wrapper.properties
